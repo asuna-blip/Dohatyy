@@ -212,6 +212,45 @@ nav a:hover{color:white;}
   background:linear-gradient(45deg,#7c3aed,#06b6d4);
 }
 
+@media (max-width:768px){
+
+  header{
+    max-width: 100%;
+    flex-direction:row;
+    text-align:center;
+    gap:10px;
+  }
+
+  .hero{
+    flex-direction:row;
+    text-align:center;
+  }
+
+  .left h1{
+    font-size:26px;
+  }
+
+  .main-card{
+    width:180px;
+  }
+
+  .card{
+    width:120px;
+    height:170px;
+  }
+
+  .grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .marquee-track img{
+    width:80px;
+    height:80px;
+  }
+}
+}
+
+
 </style>
 </head>
 
@@ -220,7 +259,6 @@ nav a:hover{color:white;}
 <header>
   <h2>Dohatyyy</h2>
   <nav>
-    <a id="homeLink">Home</a>
     <a id="nftLink">TRV</a>
     <a id="contactLink">Contact</a>
   </nav>
