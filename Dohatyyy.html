@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NFT Pro</title>
+
+<style>
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins;}
+
+body{
+  background: radial-gradient(circle at top,#0f0c29,#020617);
+  color:white;
+}
+
+/* NAV */
+header{
+  display:flex;
+  justify-content:space-between;
+  padding:20px 60px;
+  align-items:center;
+}
+
+nav a{
+  margin:0 10px;
+  color:#aaa;
+  text-decoration:none;
+  cursor:pointer;
+}
+
+nav a:hover{color:white;}
+
+.btn{
+  padding:10px 20px;
+  border:none;
+  border-radius:20px;
+  background:linear-gradient(45deg,#7c3aed,#06b6d4);
+  color:white;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.btn:hover{
+  transform:scale(1.1);
+}
+
+/* HERO */
+.hero{
+  display:flex;
+  justify-content:space-between;
+  padding:60px;
+  align-items:center;
+}
+
+.left h1{font-size:40px;}
+
+.stats{
+  display:flex;
+  gap:10px;
+  margin:20px 0;
+}
+
+.stat{
+  background:#111;
+  padding:10px 15px;
+  border-radius:10px;
+}
+
+/* CARD */
+.main-card{
+  width:250px;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 0 40px rgba(124,58,237,0.5);
+}
+
+.main-card img{width:100%;}
+
+/* CAROUSEL */
+.carousel{text-align:center;padding:50px;}
+
+.cards{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+}
+
+.card{
+  width:180px;
+  height:240px;
+  border-radius:15px;
+  overflow:hidden;
+  opacity:0.5;
+  transform:scale(0.8);
+  transition:0.5s;
+}
+
+.card.active{
+  transform:scale(1.1);
+  opacity:1;
+}
+
+.card img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.arrows button{
+  background:#111;
+  border:none;
+  color:white;
+  padding:10px;
+  margin:5px;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+/* SELLERS */
+.sellers{text-align:center;padding:40px;}
+
+.seller-list{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.seller{
+  background:#111;
+  padding:10px 15px;
+  border-radius:20px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.seller:hover{background:#222;}
+
+.seller img{
+  width:30px;
+  height:30px;
+  border-radius:50%;
+}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:20px;
+  padding:40px;
+}
+
+.box{
+  background:#111;
+  border-radius:15px;
+  overflow:hidden;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.box:hover{
+  transform:translateY(-10px);
+  box-shadow:0 0 30px rgba(124,58,237,0.4);
+}
+
+.box img{width:100%;}
+
+/* MARQUEE */
+.marquee-section{
+  padding:60px 40px;
+  text-align:center;
+}
+
+.marquee{overflow:hidden;margin-top:30px;}
+
+.marquee-track{
+  display:flex;
+  gap:20px;
+  width:max-content;
+  animation:scroll 20s linear infinite;
+}
+
+.marquee-track img{
+  width:150px;
+  height:150px;
+  object-fit:cover;
+  border-radius:15px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.marquee-track img:hover{
+  transform:scale(1.1);
+  box-shadow:0 0 20px rgba(124,58,237,0.6);
+}
+
+@keyframes scroll{
+  0%{transform:translateX(-50%);}
+  100%{transform:translateX(0);}
+}
+
+/* CTA */
+.cta{
+  margin:40px;
+  padding:40px;
+  text-align:center;
+  border-radius:20px;
+  background:linear-gradient(45deg,#7c3aed,#06b6d4);
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <h2>Dohatyyy</h2>
+  <nav>
+    <a id="homeLink">Home</a>
+    <a id="nftLink">TRV</a>
+    <a id="contactLink">Contact</a>
+  </nav>
+  <button class="btn" id="startBtn">Start</button>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="left">
+    <h1>Doha Shitri</h1>
+    <h3>Only positive energy🔋</h3>
+    <div class="stats">
+      <div class="stat">1.8M+</div>
+      <div class="stat">20 YO</div>
+    </div>
+    <a href="https://www.instagram.com/dohatyyy/"><button class="btn" id="discoverBtn">Follow</button></a>
+  </div>
+
+  <div class="main-card">
+    <img src="images/doha.jpg">
+  </div>
+</div>
+
+<!-- CAROUSEL -->
+<div class="carousel">
+  <h2>Top Pictures</h2>
+
+  <div class="cards" id="cards">
+    <div class="card active"><img src="images/d1.jpg"></div>
+    <div class="card"><img src="images/D22.jpg"></div>
+    <div class="card"><img src="images/D23.jpg"></div>
+    <div class="card"><img src="images/d4.jpg"></div>
+  </div>
+
+  <div class="arrows">
+    <button onclick="prev()">⬅</button>
+    <button onclick="next()">➡</button>
+  </div>
+</div>
+
+
+
+<!-- GRID -->
+<div class="grid">
+  <div class="box"><img src="images/D12.jpg"></div>
+  <div class="box"><img src="images/D11.jpg"></div>
+  <div class="box"><img src="images/d9.jpg"></div>
+</div>
+
+<!-- MARQUEE -->
+<section class="marquee-section">
+  <h2>Memory</h2>
+  <div class="marquee">
+    <div class="marquee-track">
+      <img src="images/D13.jpg">
+      <img src="images/D14.jpg">
+      <img src="images/d2.jpg">
+      <img src="images/d3.jpg">
+      <img src="images/d6.jpg">
+      <img src="images/d7.jpg">
+      <img src="images/D24.jpg">
+      <img src="images/d1.jpg">
+      <img src="images/D15.jpg">
+      <img src="images/D16.jpg">
+      <img src="images/D17.jpg">
+      <img src="images/D18.jpg">
+      <img src="images/D19.jpg">
+      <img src="images/D20.jpg">
+      <img src="images/D21.jpg">
+      <img src="images/d8.jpg">
+
+      <!-- duplicate for infinite -->
+      <img src="images/D13.jpg">
+      <img src="images/D14.jpg">
+      <img src="images/d2.jpg">
+      <img src="images/d3.jpg">
+      <img src="images/d6.jpg">
+      <img src="images/d7.jpg">
+      <img src="images/D24.jpg">
+      <img src="images/d1.jpg">
+      <img src="images/D15.jpg">
+      <img src="images/D16.jpg">
+      <img src="images/D17.jpg">
+      <img src="images/D18.jpg">
+      <img src="images/D19.jpg">
+      <img src="images/D20.jpg">
+      <img src="images/D21.jpg">
+      <img src="images/d8.jpg">
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta">
+  <h2>Join Community </h2>
+  <a href="https://www.instagram.com/dohatyyy/"><button class="btn" id="joinBtn">Join</button></a>
+</div>
+
+<script>
+
+// CAROUSEL
+let index = 0;
+const cards = document.querySelectorAll(".card");
+
+function show(){
+  cards.forEach(c=>c.classList.remove("active"));
+  cards[index].classList.add("active");
+}
+
+function next(){
+  index = (index + 1) % cards.length;
+  show();
+}
+
+function prev(){
+  index = (index - 1 + cards.length) % cards.length;
+  show();
+}
+
+setInterval(next,3000);
+
+// BUTTONS
+document.getElementById("startBtn").onclick = () => {
+  alert("Welcome 🚀");
+};
+
+document.getElementById("discoverBtn").onclick = () => {
+  document.querySelector(".carousel").scrollIntoView({behavior:"smooth"});
+};
+
+document.getElementById("joinBtn").onclick = () => {
+  alert("Joined Successfully 🎉");
+  window.scrollTo({top:0,behavior:"smooth"});
+};
+
+// NAV LINKS
+document.getElementById("homeLink").onclick = () => {
+  window.scrollTo({top:0,behavior:"smooth"});
+};
+
+document.getElementById("nftLink").onclick = () => {
+  document.querySelector(".grid").scrollIntoView({behavior:"smooth"});
+};
+
+document.getElementById("contactLink").onclick = () => {
+  alert("Contact:  Dohatyybusiness@gmail.com");
+};
+
+// CLICK EVENTS
+document.querySelectorAll(".seller").forEach(s=>{
+  s.onclick = ()=> alert("Profile: " + s.innerText);
+});
+
+document.querySelectorAll(".box").forEach(b=>{
+  b.onclick = ()=> alert("Opening Artwork 🎨");
+});
+
+document.querySelectorAll(".marquee-track img").forEach(img=>{
+  img.onclick = ()=> alert("NFT Preview 🔥");
+});
+
+</script>
+
+</body>
+</html>
